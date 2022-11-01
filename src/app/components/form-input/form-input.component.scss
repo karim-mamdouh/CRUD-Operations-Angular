@@ -1,0 +1,12 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  &__label {
+    margin-bottom: 10px;
+  }
+  &__input {
+    border-radius: 5px;
+    padding: 10px 5px;
+  }
+}

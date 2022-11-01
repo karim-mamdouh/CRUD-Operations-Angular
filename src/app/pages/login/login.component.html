@@ -1,0 +1,22 @@
+<section class="login">
+  <form
+    class="login__container"
+    (ngsubmit)="handleSubmit()"
+    [formGroup]="loginGroup"
+  >
+    <app-form-input
+      formControlName="email"
+      label="E-mail:"
+      type="text"
+      palceholder="email@domain.com"
+    ></app-form-input>
+    <!-- <app-form-input
+      label="Password:"
+      type="password"
+      palceholder="Enter your password"
+      formControlName="password"
+      [formControl]="getControl('password')"
+    ></app-form-input> -->
+    <button type="submit" class="login__submit">Submit</button>
+  </form>
+</section>
