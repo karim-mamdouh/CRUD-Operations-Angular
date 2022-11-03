@@ -1,12 +1,27 @@
+@import "../../../assets/scss/colors";
 .form-control {
   display: flex;
   flex-direction: column;
   padding: 10px;
   &__label {
+    color: $grey-color;
     margin-bottom: 10px;
   }
   &__input {
     border-radius: 5px;
-    padding: 10px 5px;
+    padding: 10px 7px;
+    margin-bottom: 5px;
+    border: 1px solid $blue-color;
+    border-radius: 10px;
+  }
+
+  &__input:focus,
+  &__input:focus-visible {
+    box-shadow: 0 0 0 0.2rem $blue-color;
+    border-color: $blue-color !important;
+    outline: none;
+  }
+  &__errors {
+    color: $red-color;
   }
 }

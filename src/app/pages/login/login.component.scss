@@ -1,7 +1,4 @@
 .login {
-  background-color: gray;
-  border: 1px solid transparent;
-  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,10 +9,14 @@
     flex-direction: column;
     margin: 0 auto;
   }
-  &__submit {
-    margin: 0 auto;
-    padding: 10px 20px;
-    border: 1px solid transparent;
-    border-radius: 5px;
+  &__wrong-user {
+    text-align: center;
+    color: red;
+    margin-bottom: 30px;
+    font-size: 1.3rem;
   }
+}
+::ng-deep app-login {
+  flex-grow: 1;
+  display: flex;
 }

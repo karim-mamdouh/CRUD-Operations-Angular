@@ -1,0 +1,12 @@
+td {
+  //height: 40px;
+  height: auto;
+  padding: 10px 20px;
+  text-align: center;
+}
+td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+td:last-child {
+  border-radius: 0 10px 10px 0;
+}

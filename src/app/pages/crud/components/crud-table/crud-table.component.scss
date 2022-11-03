@@ -1,0 +1,25 @@
+@import "../../../../../assets/scss/colors";
+::ng-deep app-crud-table {
+  width: 70%;
+}
+.data-table {
+  table-layout: fixed;
+  width: 100%;
+  &__header {
+    th {
+      padding: 0 10px;
+      font-size: 1.1rem;
+      color: $grey-color;
+      white-space: nowrap;
+    }
+  }
+  &__body {
+    vertical-align: text-top;
+    tr {
+      background-color: #f1f0f0;
+    }
+    tr:nth-child(2n) {
+      background-color: transparent;
+    }
+  }
+}

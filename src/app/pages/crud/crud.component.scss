@@ -1,0 +1,17 @@
+@import "../../../assets/scss/colors";
+.crud {
+  margin-top: 20px;
+  display: flex;
+  flex-grow: 1;
+}
+.crud-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 30px 0;
+  color: $blue-color;
+}
+::ng-deep app-crud {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

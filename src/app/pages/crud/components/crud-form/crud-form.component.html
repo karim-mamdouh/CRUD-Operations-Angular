@@ -1,0 +1,70 @@
+<h2 class="crud-form__title">Add/Modify Employee</h2>
+<form [formGroup]="crudGroup" (ngSubmit)="handleSubmit()" class="crud-form">
+  <!-- First name input -->
+  <app-form-input
+    label="First Name"
+    type="text"
+    controlName="firstName"
+    palceholder="Enter your first name"
+  >
+    <!-- First name errors -->
+    <ng-template
+      [ngIf]="
+        (!formControl['firstName'].valid && formControl['firstName'].touched) ||
+        showErrors
+      "
+    >
+      <p *ngIf="formControl['firstName'].errors?.['required']">
+        This field is required
+      </p>
+      <p *ngIf="formControl['firstName'].errors?.['minlength']">
+        Minimum length is 3 letters
+      </p>
+    </ng-template>
+  </app-form-input>
+  <!-- Last name input -->
+  <app-form-input
+    label="Last Name"
+    type="text"
+    controlName="lastName"
+    palceholder="Enter your last name"
+  >
+    <!-- Last name errors -->
+    <ng-template
+      [ngIf]="
+        (!formControl['lastName'].valid && formControl['lastName'].touched) ||
+        showErrors
+      "
+    >
+      <p *ngIf="formControl['lastName'].errors?.['required']">
+        This field is required
+      </p>
+      <p *ngIf="formControl['lastName'].errors?.['minlength']">
+        Minimum length is 3 letters
+      </p>
+    </ng-template></app-form-input
+  >
+  <!-- Phone input -->
+  <app-form-input
+    label="Phone"
+    type="tel"
+    controlName="phone"
+    palceholder="01234567890"
+  >
+    <!-- Phone errors -->
+    <ng-template
+      [ngIf]="
+        (!formControl['phone'].valid && formControl['phone'].touched) ||
+        showErrors
+      "
+    >
+      <p
+        *ngIf="formControl['phone'].errors?.['minlength'] || formControl['phone'].errors?.['maxlength']"
+      >
+        Phone should be 11 digits
+      </p>
+    </ng-template></app-form-input
+  >
+  <!-- Submit button -->
+  <button type="submit">Save</button>
+</form>

@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/colors";
 app-root {
   flex-grow: 1;
   display: flex;
@@ -8,13 +9,30 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(
+    190deg,
+    rgba(58, 136, 199, 1) 0%,
+    rgba(58, 136, 199, 1) 4%,
+    rgba(228, 229, 230, 1) 100%
+  );
+  padding: 50px;
 }
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-app-login {
-  flex-grow: 1;
-  display: flex;
+
+button {
+  padding: 10px 20px;
+  border: 2px solid $blue-color;
+  background-color: white;
+  border-radius: 5px !important;
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color: $blue-color;
+  color: white;
+  cursor: pointer;
 }

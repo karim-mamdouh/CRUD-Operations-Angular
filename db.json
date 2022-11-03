@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Karim",
+      "email": "karim.mamdouh@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "Karim",
+      "lastName": "Mamdouh",
+      "phone": "01159100998",
+      "id": 3
+    },
+    {
+      "firstName": "Karim",
+      "lastName": "Mamdouh",
+      "phone": "01159100996",
+      "id": 5
+    },
+    {
+      "firstName": "Salma",
+      "lastName": "El-Mahallawy",
+      "phone": "51462341668",
+      "id": 7
+    }
+  ]
+}

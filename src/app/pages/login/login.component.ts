@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormControl,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  showErrors: boolean = false;
+  wrongUser: boolean = false;
   loginGroup: FormGroup = this._loginBuilder.group({
     email: [
       '',
@@ -21,12 +21,35 @@ export class LoginComponent implements OnInit {
     ],
     password: ['', [Validators.required]],
   });
-  constructor(private _loginBuilder: FormBuilder) {}
+
+  constructor(
+    private _loginBuilder: FormBuilder,
+    private _apiService: ApiService,
+    private _router: Router
+  ) {}
+
   handleSubmit(): void {
-    console.log(this.loginGroup.get('email'));
+    if (this.loginGroup.status !== 'VALID') {
+      this.showErrors = true;
+    } else {
+      this._apiService
+        .login(
+          this.loginGroup.value['email']!,
+          this.loginGroup.value['password']!
+        )
+        .subscribe((res) => {
+          if (res.length > 0) {
+            localStorage.setItem('token', 'true');
+            this._router.navigate(['/']);
+          } else {
+            this.wrongUser = true;
+          }
+        });
+    }
   }
-  getControl(name: string): FormControl {
-    return this.loginGroup.controls[name] as FormControl;
+  get formControls() {
+    return this.loginGroup.controls;
   }
+
   ngOnInit(): void {}
 }

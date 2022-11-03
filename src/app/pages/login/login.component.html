@@ -1,22 +1,53 @@
 <section class="login">
   <form
     class="login__container"
-    (ngsubmit)="handleSubmit()"
+    (submit)="handleSubmit()"
     [formGroup]="loginGroup"
   >
+    <!-- Email input -->
     <app-form-input
-      formControlName="email"
+      controlName="email"
       label="E-mail:"
       type="text"
       palceholder="email@domain.com"
-    ></app-form-input>
-    <!-- <app-form-input
+    >
+      <!-- Email input errors -->
+      <ng-template
+        [ngIf]="
+          (!formControls['email'].valid && formControls['email'].touched) ||
+          showErrors
+        "
+      >
+        <p *ngIf="formControls['email'].errors?.['required']">
+          This field is required
+        </p>
+        <p *ngIf="formControls['email'].errors?.['pattern']">
+          Please enter a valid email format
+        </p>
+      </ng-template>
+    </app-form-input>
+    <!-- Password input -->
+    <app-form-input
       label="Password:"
       type="password"
       palceholder="Enter your password"
-      formControlName="password"
-      [formControl]="getControl('password')"
-    ></app-form-input> -->
+      controlName="password"
+    >
+      <!-- Password input errors -->
+      <ng-template
+        [ngIf]="
+          (!formControls['password'].valid &&
+            formControls['password'].touched) ||
+          showErrors
+        "
+      >
+        <p *ngIf="formControls['password'].errors?.['required']">
+          This field is required
+        </p>
+      </ng-template>
+    </app-form-input>
+    <p *ngIf="wrongUser" class="login__wrong-user">Wrong email or password</p>
+    <!-- Submit button -->
     <button type="submit" class="login__submit">Submit</button>
   </form>
 </section>

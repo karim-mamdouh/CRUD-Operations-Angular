@@ -1,0 +1,11 @@
+<p-table [value]="tableData" [paginator]="true" [rows]="5">
+  <ng-template pTemplate="header">
+    <th *ngFor="let header of tableHeaders">{{ header }}</th>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+    <tr app-table-row [rowData]="item">
+      <button (click)="handleEditClick(item.id)">Edit</button>
+      <button (click)="handleDeleteClick(item.id)">Delete</button>
+    </tr>
+  </ng-template>
+</p-table>
