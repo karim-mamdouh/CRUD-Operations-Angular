@@ -52,8 +52,6 @@ export class CrudComponent implements OnInit {
       throw new Error('Not found');
     }
     this.crudData[index] = { ...emp };
-    this._apiService.updateEmployee(emp).subscribe((res) => {
-      console.log(res);
-    });
+    this._apiService.updateEmployee(emp).subscribe();
   }
 }

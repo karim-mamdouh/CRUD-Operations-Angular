@@ -1,10 +1,12 @@
 <h1 class="crud-title">CRUD Operations</h1>
 <button (click)="logout()">Logout</button>
 <div class="crud">
+  <!-- CRUD Form -->
   <app-crud-form
     (addEmployee)="addEmployee($event)"
     (updateEmployee)="updateEmployee($event)"
   ></app-crud-form>
+  <!-- CRUD Table -->
   <app-crud-table
     *ngIf="crudData.length > 0"
     [tableData]="crudData"

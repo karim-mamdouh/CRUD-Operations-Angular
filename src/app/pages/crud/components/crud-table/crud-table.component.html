@@ -1,7 +1,9 @@
 <p-table [value]="tableData" [paginator]="true" [rows]="5">
+  <!-- Table header -->
   <ng-template pTemplate="header">
     <th *ngFor="let header of tableHeaders">{{ header }}</th>
   </ng-template>
+  <!-- Table body -->
   <ng-template pTemplate="body" let-item>
     <tr app-table-row [rowData]="item">
       <button (click)="handleEditClick(item.id)">Edit</button>
